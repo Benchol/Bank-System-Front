@@ -3,13 +3,13 @@
         Menu
     </div>
     <div class="flex flex-col mt-8">
-        <div class="flex my-5 pb-2 cursor-pointer items-center justify-start border-b" routerLink="['refund']">
+        <div class="flex my-5 pb-2 cursor-pointer items-center justify-start border-b" (click)="navigate('dashboard/refund')">
             <i class="pi pi-credit-card pr-2" style="color: slateblue"></i> Refund our account
         </div>
-        <div class="flex my-5 pb-2 cursor-pointer items-center justify-start border-b" routerLink="['refund']">
+        <div class="flex my-5 pb-2 cursor-pointer items-center justify-start border-b" (click)="navigate('dashboard/refund')">
             <i class="pi pi-arrow-right-arrow-left pr-2" style="color: slateblue"></i> Transfer money
         </div>
-        <div class="flex my-5 pb-2 cursor-pointer items-center justify-start border-b" routerLink="['refund']">
+        <div class="flex my-5 pb-2 cursor-pointer items-center justify-start border-b" (click)="navigate('dashboard/refund')">
             <i class="pi pi-eject pr-2" style="color: slateblue"></i> Withdraw money
         </div>
     </div>
