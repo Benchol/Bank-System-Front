@@ -5,9 +5,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
+import { RouterModule } from '@angular/router';
 
 import { SidebarModule } from 'primeng/sidebar';
-import { RouterModule } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+import { AvatarModule } from 'primeng/avatar';
+import { ToastModule } from 'primeng/toast';
+import { MenuModule } from 'primeng/menu';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,15 @@ import { RouterModule } from '@angular/router';
     MainComponent,
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    RouterModule,
+    SidebarModule,
+    ButtonModule,
+    AvatarModule,
+    ToastModule,
+    MenuModule
+  ],
+  providers: [MessageService]
+
 })
 export class LayoutModule { }

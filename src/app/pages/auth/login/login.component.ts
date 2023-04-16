@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
 
   initForm() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      pin: ['', [Validators.required, Validators.pattern(/[0-9]{4,4}/)]],
+      username: ['rianaben', Validators.required],
+      pin: ['hero', [Validators.required, Validators.pattern(/[0-9]{4,4}/)]],
       rememberMe: [false, []],
     });
   }
