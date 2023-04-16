@@ -1,5 +1,5 @@
-<div class="flex absolute z-100 w-screen h-screen p-overflow-hidden">
-    <img src="assets/test.avif" class="w-full h-full" alt="">
+<div class="flex absolute z-100 w-full h-full p-overflow-hidden">
+    <img src="assets/refund.jpg" class="w-full h-full object-cover" alt="">
 </div>
 
 <p-toast></p-toast>
@@ -14,7 +14,7 @@
                     <div class="text-blueGray-400 text-center mb-3 font-bold">
                         <p class="text-2xl py-6">Refund your wallet</p>
                     </div>
-                    <form>
+                    <form [formGroup]="refundForm">
                         <div class="relative w-full mb-3">
                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
                                 Amount to top up
