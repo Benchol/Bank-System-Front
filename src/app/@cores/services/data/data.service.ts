@@ -11,4 +11,9 @@ export class DataService {
   isConnected = new BehaviorSubject<boolean>(false);
 
   constructor() { }
+
+
+  getToken() {
+    return localStorage.getItem('token')
+  }
 }

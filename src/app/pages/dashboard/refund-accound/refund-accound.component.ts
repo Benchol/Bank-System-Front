@@ -38,6 +38,8 @@ export class RefundAccoundComponent implements OnInit {
 
     this.httpService.refund(amount, pin)
       .subscribe(data => {
+        console.log('Data returned ', data);
+        
         if(data.status) {
           this.messageService.add({
             severity: 'success',
@@ -46,11 +48,11 @@ export class RefundAccoundComponent implements OnInit {
           });
 
           const userUpdated = {
-            id: data.data.id,
-            name: data.data.name,
-            username: data.data.username,
-            balance: data.data.balance,
-            role: data.data.role
+            id: data.user.id,
+            name: data.user.name,
+            username: data.user.username,
+            balance: data.user.balance,
+            role: data.user.role
           }
 
           this.dataService.currentUser.next(userUpdated);
