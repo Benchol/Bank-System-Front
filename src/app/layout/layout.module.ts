@@ -6,7 +6,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 
-
+import { SidebarModule } from 'primeng/sidebar';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { MainComponent } from './main/main.component';
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
   ],
   imports: [
     CommonModule

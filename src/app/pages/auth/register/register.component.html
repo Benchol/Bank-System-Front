@@ -2,6 +2,7 @@
     <img src="assets/test.avif" class="w-full h-full" alt="">
 </div>
 
+
 <div class="container w-2/3 mx-auto px-4 h-screen">
     <div class="flex content-center items-center justify-center h-full">
         <div class="w-full lg:w-6/12 px-4">
@@ -38,9 +39,9 @@
 
                         <div class="relative w-full mb-3">
                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
-                                Email
+                                Username
                             </label>
-                            <input formControlName="email" type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email" />
+                            <input formControlName="username" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email" />
                         </div>
 
                         <div class="relative w-full mb-3">
@@ -54,6 +55,7 @@
                             <label class="inline-flex items-center cursor-pointer">
                         <input
                         formControlName="approval"
+                            [(ngModel)]="isApproved"
                             id="customCheckLogin"
                             type="checkbox"
                             class="form-checkbox border-0 text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150 rounded"
@@ -66,10 +68,10 @@
                         </span>
                         </label>
                         </div>
-
                         <div class="text-center mt-6">
-                            <button class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button">
-                                Create Account
+                            <button [disabled]="!isApproved" [ngClass]="{'bg-blueGray-600 cursor-not-allowed': !isApproved, 'bg-blueGray-800 ': isApproved}" class="text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                                type="button" (click)="onRegister()">
+                                    Create Account
                             </button>
                         </div>
 
