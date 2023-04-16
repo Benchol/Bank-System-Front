@@ -5,6 +5,11 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { LayoutModule } from 'src/app/layout/layout.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AngularSvgIconModule } from 'angular-svg-icon';
+
 
 
 @NgModule({
@@ -15,7 +20,11 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    LayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularSvgIconModule.forRoot()
   ]
 })
 export class AuthModule { }
