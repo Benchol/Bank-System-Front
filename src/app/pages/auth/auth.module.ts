@@ -10,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularSvgIconModule.forRoot()
-  ]
+    AngularSvgIconModule.forRoot(),
+    ToastModule
+  ],
+  providers: [MessageService]
 })
 export class AuthModule { }

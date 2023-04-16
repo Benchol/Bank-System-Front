@@ -3,6 +3,8 @@
 @import '~tailwindcss/base.css';
 @import '~tailwindcss/components.css';
 @import '~tailwindcss/utilities.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
 .bg-black {
     --tw-bg-opacity: 1;
     background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
