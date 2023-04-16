@@ -13,6 +13,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { ToastModule } from 'primeng/toast';
 import { MenuModule } from 'primeng/menu';
 import { MessageService } from 'primeng/api';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
     AvatarModule,
     ToastModule,
-    MenuModule
+    MenuModule,
   ],
   providers: [MessageService]
 
