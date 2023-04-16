@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent } from '../layout/layout.component';
-import { RefundAccoundComponent } from './dashboard/refund-accound/refund-accound.component';
-import { TransferMoneyComponent } from './dashboard/transfer-money/transfer-money.component';
-import { WithdrawMoneyComponent } from './dashboard/withdraw-money/withdraw-money.component';
+import { AuthGuard } from '../@cores/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',

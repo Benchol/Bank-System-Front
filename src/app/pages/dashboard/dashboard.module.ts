@@ -9,6 +9,11 @@ import { TransferMoneyComponent } from './transfer-money/transfer-money.componen
 import { RouterModule } from '@angular/router';
 
 
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -19,7 +24,11 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    RouterModule
-  ]
+    RouterModule,
+    ToastModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [MessageService]
 })
 export class DashboardModule { }
