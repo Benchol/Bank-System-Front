@@ -1,1 +1,19 @@
-<p>navbar works!</p>
+<div class="flex w-screen h-auto py-3 overflow-x-hidden items-center justify-between shadow-sm	">
+    <div class="flex ml-12">
+        <div class="card flex justify-content-center">
+            <p-sidebar [(visible)]="sidebarVisible">
+                <app-sidebar></app-sidebar>
+            </p-sidebar>
+            <p-button (click)="sidebarVisible = true" icon="pi pi-align-justify"></p-button>
+        </div>
+    </div>
+    <div class="flex px-10">
+        <div class="flex hover:cursor-pointer">
+            <!-- <p-avatar icon="pi pi-user" pBadge styleClass="mr-5" shape="circle" size="large" [style]="{ 'background-color': '#4caf4f', color: '#ffffff' }"></p-avatar> -->
+
+            <p-toast></p-toast>
+            <p-menu #menu [model]="items" [popup]="true"></p-menu>
+            <p-avatar class="hover:cursor-pointer" (click)="menu.toggle($event)" shape="circle" size="large" icon="pi pi-user" [style]="{ 'background-color': '#4caf4f', color: '#ffffff' }"></p-avatar>
+        </div>
+    </div>
+</div>
