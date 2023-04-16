@@ -23,4 +23,11 @@ export class HttpService {
       pin
     });
   }
+
+  refund(amount: number, pin: string): Observable<any> {
+    return this.http.post<Observable<any>>(`${this.apiUrl}/depositFund`, {
+      amount,
+      pin
+    })
+  }
 }
