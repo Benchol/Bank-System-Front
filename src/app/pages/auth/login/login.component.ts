@@ -50,10 +50,7 @@ export class LoginComponent implements OnInit {
 
     this.httpService.login(username, pin)
       .subscribe(data => {
-        console.log('Response final', data.status);
         if(data.status) {
-          console.log('Hello');
-          
           const user: User = {
             id: data.data.id,
             name: data.data.name,
@@ -64,8 +61,8 @@ export class LoginComponent implements OnInit {
           
           localStorage.setItem('token', data.token);
           this.dataService.currentUser.next(user)
+          this.dataService.isConnected.next(true)
           this.router.navigate(['/dashboard'])
-          console.log('Holla');
         }
       })
   }
