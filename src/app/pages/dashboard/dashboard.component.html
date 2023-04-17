@@ -1,1 +1,30 @@
 <!-- <app-transactions-history></app-transactions-history> -->
+
+
+<div class="flex w-full h-4/5 items-start">
+    <div class="flex items-end justify-center relative w-full h-4/5">
+        <div class="flex w-full flex-col h-full items-center text-4xl pt-24">
+            <span>Manage account easily with</span> <span class="text-6xl font-bold pt-8">Bank Of Hero</span>
+        </div>
+        <img class="w-full h-full -z-50 absolute" src="assets/bb.png" alt="">
+        <div class="flex absolute w-2/3 h-2/5 text-[#495057] rounded-md bg-[#3ea37ba3] -bottom-10 items-center justify-around">
+            <div class="flex flex-col w-1/4 h-5/6 bg-white rounded-md">
+                <span class="flex items-center justify-center text-lg font-bold h-2/5 border-b text-[#1746A2]"> Taux d' intéret </span>
+                <div class="flex items-center justify-center h-3/5">Jusqu' à 5%</div>
+            </div>
+            <div class="flex flex-col w-1/4 h-5/6 bg-white rounded-md">
+                <span class="flex items-center justify-center text-lg font-bold h-2/5 border-b text-[#5F9DF7]"> Crédit</span>
+                <div class="flex items-center justify-center h-3/5">Jusqu' à 5 000$</div>
+            </div>
+            <div class="flex flex-col w-1/4 h-5/6 bg-white rounded-md">
+                <span class="flex items-center justify-center text-lg font-bold h-2/5 border-b text-[#FF731D]"> Clients </span>
+                <div class="flex items-center justify-center h-3/5">+ 10 000 clients</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card">
+    <p-chart type="line" [data]="data" [options]="options"></p-chart>
+</div>

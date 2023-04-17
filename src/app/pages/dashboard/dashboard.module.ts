@@ -16,8 +16,8 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { TransactionsHistoryComponent } from './transactions-history/transactions-history.component';
-
-
+import { ChartModule } from 'primeng/chart';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,9 @@ import { TransactionsHistoryComponent } from './transactions-history/transaction
     ReactiveFormsModule,
     TableModule,
     TagModule,
-    ProgressBarModule
+    ProgressBarModule,
+    ChartModule,
+    CardModule
   ],
   providers: [MessageService]
 })
