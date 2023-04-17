@@ -29,7 +29,7 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
     AvatarModule,
     ToastModule,
-    MenuModule
+    MenuModule,
   ],
   providers: [MessageService]
 

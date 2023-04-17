@@ -30,4 +30,8 @@ export class HttpService {
       pin
     })
   }
+
+  getAllMyTransactions(): Observable<any> {
+    return this.http.get<Observable<any>>(`${this.apiUrl}/transaction/getMyTransaction`);
+  }
 }

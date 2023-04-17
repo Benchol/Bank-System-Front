@@ -1,0 +1,49 @@
+<div class="card mt-8">
+    <p-table #dt [value]="listTransactions" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="caption">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center justify-start text-xl font-bold">
+                    <i class="pi pi-clock"></i>
+                    <div class="flex pl-2">Transaction history</div>
+                </div>
+                <div class="flex">
+                    <span class="p-input-icon-left ml-auto">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" class="pl-10 px-py" [(ngModel)]="keywords" (change)="search(keywords) "/>
+                    </span>
+                    <span class="flex items-center justify-center ml-2 cursor-pointer" (click)="clearSearch()">
+                        <i class="pi pi-times"></i>
+                    </span>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th class="!text-center" pSortableColumn="namePayees">Name of payees
+                    <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th class="!text-center" pSortableColumn="amount">Amount
+                    <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th class="!text-center" pSortableColumn="type">Type of transaction
+                    <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th class="!text-center" pSortableColumn="date">Date transaction
+                    <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th class="!text-center">Descriptions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-transaction>
+            <tr>
+                <td class="!text-center">{{ transaction.receiver.name }}</td>
+                <td class="!text-center">{{ transaction.amount }} $</td>
+                <td class="!text-center">
+                    <p-tag [value]="transaction.transaction_type" [severity]="getTypeTransaction(transaction.transaction_type)"></p-tag>
+                </td>
+                <td class="!text-center">{{ transaction.transaction_date | date:"M / d / yy, h:mm a" }}</td>
+                <td class="!text-center">Hello</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -12,6 +12,11 @@ import { RouterModule } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { TransactionsHistoryComponent } from './transactions-history/transactions-history.component';
+
 
 
 @NgModule({
@@ -19,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     RefundAccoundComponent,
     WithdrawMoneyComponent,
-    TransferMoneyComponent
+    TransferMoneyComponent,
+    TransactionsHistoryComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +33,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     ToastModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule,
+    TagModule,
+    ProgressBarModule
   ],
   providers: [MessageService]
 })
