@@ -5,7 +5,7 @@ import { Table } from 'primeng/table';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  host: {'class': 'w-full relative h-full'}
+  host: { class: 'w-full relative w-screen' },
 })
 export class DashboardComponent implements OnInit {
   data: any;
@@ -24,18 +24,27 @@ export class DashboardComponent implements OnInit {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
         {
-          label: 'First Dataset',
+          label: 'Transfert',
           data: [65, 59, 80, 81, 56, 55, 40],
           fill: false,
-          borderColor: documentStyle.getPropertyValue('--blue-500'),
           tension: 0.4,
+          borderColor: documentStyle.getPropertyValue('--blue-500'),
         },
         {
-          label: 'Second Dataset',
+          label: 'Withdraw',
           data: [28, 48, 40, 19, 86, 27, 90],
           fill: false,
-          borderColor: documentStyle.getPropertyValue('--pink-500'),
+          borderDash: [5, 5],
           tension: 0.4,
+          borderColor: documentStyle.getPropertyValue('--teal-500'),
+        },
+        {
+          label: 'Deposit',
+          data: [12, 51, 62, 33, 21, 62, 45],
+          fill: true,
+          borderColor: documentStyle.getPropertyValue('--orange-500'),
+          tension: 0.4,
+          backgroundColor: 'rgba(255,167,38,0.2)',
         },
       ],
     };
@@ -56,7 +65,6 @@ export class DashboardComponent implements OnInit {
           },
           grid: {
             color: surfaceBorder,
-            drawBorder: false,
           },
         },
         y: {
@@ -65,7 +73,6 @@ export class DashboardComponent implements OnInit {
           },
           grid: {
             color: surfaceBorder,
-            drawBorder: false,
           },
         },
       },
