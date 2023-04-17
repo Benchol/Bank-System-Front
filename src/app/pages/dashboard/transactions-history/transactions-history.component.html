@@ -19,20 +19,30 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="namePayees">Name of payees</th>
-                <th pSortableColumn="amount">Amount</th>
-                <th pSortableColumn="type">Type of transaction</th>
-                <th pSortableColumn="date">Date transaction</th>
-                <th>Descriptions</th>
+                <th class="!text-center" pSortableColumn="namePayees">Name of payees
+                    <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th class="!text-center" pSortableColumn="amount">Amount
+                    <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th class="!text-center" pSortableColumn="type">Type of transaction
+                    <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th class="!text-center" pSortableColumn="date">Date transaction
+                    <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th class="!text-center">Descriptions</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-transaction>
             <tr>
-                <td>{{ transaction.receiver.name }}</td>
-                <td>{{ transaction.amount }}</td>
-                <td>{{ transaction.transaction_type }}</td>
-                <td>{{ transaction.transaction_date | date:"M / d / yy, h:mm a" }}</td>
-                <td>Hello</td>
+                <td class="!text-center">{{ transaction.receiver.name }}</td>
+                <td class="!text-center">{{ transaction.amount }} $</td>
+                <td class="!text-center">
+                    <p-tag [value]="transaction.transaction_type" [severity]="getTypeTransaction(transaction.transaction_type)"></p-tag>
+                </td>
+                <td class="!text-center">{{ transaction.transaction_date | date:"M / d / yy, h:mm a" }}</td>
+                <td class="!text-center">Hello</td>
             </tr>
         </ng-template>
     </p-table>

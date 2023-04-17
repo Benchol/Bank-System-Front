@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 import { RefundAccoundComponent } from './refund-accound/refund-accound.component';
 import { TransferMoneyComponent } from './transfer-money/transfer-money.component';
 import { WithdrawMoneyComponent } from './withdraw-money/withdraw-money.component';
+import { TransactionsHistoryComponent } from './transactions-history/transactions-history.component';
 
 const routes: Routes = [
     {
@@ -18,6 +19,9 @@ const routes: Routes = [
     }, {
       path: 'withdraw',
       component: WithdrawMoneyComponent
+    }, {
+      path: 'transactions',
+      component: TransactionsHistoryComponent
     }
 ];
 

@@ -57,4 +57,17 @@ export class TransactionsHistoryComponent implements OnInit {
     this.keywords = ""
   }
 
+  getTypeTransaction(type: string) {
+    switch (type) {
+        case 'deposit':
+            return 'success';
+        case 'transfer':
+            return 'warning';
+        case 'withdraw':
+            return 'danger';
+        default:
+          return 'danger';
+    }
+}
+
 }
