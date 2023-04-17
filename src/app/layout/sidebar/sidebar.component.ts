@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/@cores/models/user.model';
+import { DataService } from 'src/app/@cores/services/data/data.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,9 +10,21 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  currentUser!: User;
+
+  constructor(
+      private router: Router,
+      private dataService: DataService
+    ) { }
 
   ngOnInit(): void {
+    this.dataService.currentUser.subscribe(
+      (user: User | null) => {
+        if(user) {
+          this.currentUser = user;
+        }
+      } 
+    )
   }
 
   navigate(link: string) {
