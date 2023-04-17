@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Table } from 'primeng/table';
+import { Transaction } from 'src/app/@cores/models/transaction.model';
+import { HttpService } from 'src/app/@cores/services/http/http.service';
 
 @Component({
   selector: 'app-transactions-history',
@@ -8,6 +10,7 @@ import { Table } from 'primeng/table';
 })
 export class TransactionsHistoryComponent implements OnInit {
 
+  listTransactions: Transaction[] = [];
   keywords = "";
   loading = true;
   products = [
@@ -24,9 +27,21 @@ export class TransactionsHistoryComponent implements OnInit {
     }
   ]
   
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
+    this.getAllTransactions()
+  }
+
+  getAllTransactions() {
+    this.httpService.getAllMyTransactions()
+      .subscribe(data => {
+        if(data.status) {
+          this.listTransactions = data.transactions;
+          console.log('ok ', this.listTransactions);
+          
+        }
+      })
   }
 
   search(words: string) {
@@ -42,25 +57,4 @@ export class TransactionsHistoryComponent implements OnInit {
     this.keywords = ""
   }
 
-  getSeverity(status: any) {
-      switch (status.toLowerCase()) {
-          case 'unqualified':
-              return 'danger';
-
-          case 'qualified':
-              return 'success';
-
-          case 'new':
-              return 'info';
-
-          case 'negotiation':
-              return 'warning';
-
-          case 'renewal':
-              return null;
-
-          default:
-            return null
-      }
-  }
 }

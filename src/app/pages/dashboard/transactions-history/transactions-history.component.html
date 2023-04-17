@@ -1,8 +1,11 @@
-<div class="card">
-    <p-table #dt [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="card mt-8">
+    <p-table #dt [value]="listTransactions" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="caption">
             <div class="flex items-center justify-between">
-                <button pButton label="Clear" class="p-button-outlined bg-blueGray-600" icon="pi pi-filter" (click)="clear(dt)"></button>
+                <div class="flex items-center justify-start text-xl font-bold">
+                    <i class="pi pi-clock"></i>
+                    <div class="flex pl-2">Transaction history</div>
+                </div>
                 <div class="flex">
                     <span class="p-input-icon-left ml-auto">
                         <i class="pi pi-search"></i>
@@ -16,18 +19,20 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="code">Code</th>
-                <th pSortableColumn="name">Name</th>
-                <th>Category</th>
-                <th>Quantity</th>
+                <th pSortableColumn="namePayees">Name of payees</th>
+                <th pSortableColumn="amount">Amount</th>
+                <th pSortableColumn="type">Type of transaction</th>
+                <th pSortableColumn="date">Date transaction</th>
+                <th>Descriptions</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
+        <ng-template pTemplate="body" let-transaction>
             <tr>
-                <td>{{ product.code }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.category }}</td>
-                <td>{{ product.quantity }}</td>
+                <td>{{ transaction.receiver.name }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.transaction_date | date:"M / d / yy, h:mm a" }}</td>
+                <td>Hello</td>
             </tr>
         </ng-template>
     </p-table>
