@@ -16,8 +16,8 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { TransactionsHistoryComponent } from './transactions-history/transactions-history.component';
-import { ChartModule } from 'primeng/chart';
 import { CardModule } from 'primeng/card';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -37,8 +37,8 @@ import { CardModule } from 'primeng/card';
     TableModule,
     TagModule,
     ProgressBarModule,
-    ChartModule,
-    CardModule
+    CardModule,
+    NgApexchartsModule
   ],
   providers: [MessageService]
 })
