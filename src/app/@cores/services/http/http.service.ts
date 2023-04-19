@@ -34,4 +34,15 @@ export class HttpService {
   getAllMyTransactions(): Observable<any> {
     return this.http.get<Observable<any>>(`${this.apiUrl}/transaction/getMyTransaction`);
   }
+
+  transferMoney(receiverName: string, accountNumber: string, amount: number, description: string, pin: string): Observable<any> {
+    return this.http.post<Observable<any>>(`${this.apiUrl}/transfer`, {
+      receiverName,
+      accountNumber,
+      amount,
+      description,
+      pin
+    })
+  }
 }
+
