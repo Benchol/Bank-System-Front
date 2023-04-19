@@ -13,19 +13,6 @@ export class TransactionsHistoryComponent implements OnInit {
   listTransactions: Transaction[] = [];
   keywords = "";
   loading = true;
-  products = [
-    {
-      code: '4',
-      name: 'ben',
-      category: 'test',
-      quantity: '4'
-    }, {
-      code: '4',
-      name: 'riaba',
-      category: 'test',
-      quantity: '4'
-    }
-  ]
   
   constructor(private httpService: HttpService) { }
 
@@ -37,6 +24,7 @@ export class TransactionsHistoryComponent implements OnInit {
     this.httpService.getAllMyTransactions()
       .subscribe(data => {
         if(data.status) {
+          // this.loading = false;
           this.listTransactions = data.transactions;
           console.log('ok ', this.listTransactions);
           

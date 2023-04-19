@@ -1,5 +1,5 @@
 <div class="card mt-8">
-    <p-table #dt [value]="listTransactions" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table #dt [showCurrentPageReport]="true" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [value]="listTransactions" [tableStyle]="{ 'min-width': '50rem' }" [rows]="10">
         <ng-template pTemplate="caption">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start text-xl font-bold">
@@ -19,16 +19,16 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th class="!text-center" pSortableColumn="namePayees">Name of payees
+                <th class="!text-center" pSortableColumn="receiver.name">Name of payees
                     <p-sortIcon field="code"></p-sortIcon>
                 </th>
                 <th class="!text-center" pSortableColumn="amount">Amount
                     <p-sortIcon field="code"></p-sortIcon>
                 </th>
-                <th class="!text-center" pSortableColumn="type">Type of transaction
+                <th class="!text-center" pSortableColumn="transaction_type">Type of transaction
                     <p-sortIcon field="code"></p-sortIcon>
                 </th>
-                <th class="!text-center" pSortableColumn="date">Date transaction
+                <th class="!text-center" pSortableColumn="transaction_date">Date transaction
                     <p-sortIcon field="code"></p-sortIcon>
                 </th>
                 <th class="!text-center">Descriptions</th>
