@@ -1,5 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
+
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexXAxis,
+  ApexDataLabels,
+  ApexYAxis,
+  ApexLegend,
+  ApexFill
+} from "ng-apexcharts";
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  dataLabels: ApexDataLabels;
+  yaxis: ApexYAxis;
+  colors: string[];
+  legend: ApexLegend;
+  fill: ApexFill;
+};
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,74 +31,72 @@ import { Table } from 'primeng/table';
   host: { class: 'w-full relative w-screen' },
 })
 export class DashboardComponent implements OnInit {
-  data: any;
+  @ViewChild("chart") chart!: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
 
-  options: any;
-
-  ngOnInit(): void {
-    const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue(
-      '--text-color-secondary'
-    );
-    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-
-    this.data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
+  constructor() {
+    this.chartOptions = {
+      series: [
         {
-          label: 'Transfert',
-          data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
-          tension: 0.4,
-          borderColor: documentStyle.getPropertyValue('--blue-500'),
-        },
-        {
-          label: 'Withdraw',
-          data: [28, 48, 40, 19, 86, 27, 90],
-          fill: false,
-          borderDash: [5, 5],
-          tension: 0.4,
-          borderColor: documentStyle.getPropertyValue('--teal-500'),
-        },
-        {
-          label: 'Deposit',
-          data: [12, 51, 62, 33, 21, 62, 45],
-          fill: true,
-          borderColor: documentStyle.getPropertyValue('--orange-500'),
-          tension: 0.4,
-          backgroundColor: 'rgba(255,167,38,0.2)',
-        },
+          name: "Transfert",
+          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+        }, {
+          name: "Dépot",
+          data: [458, 12, 49, 200, 1000, 45, 50, 50, 500]
+        }, {
+          name: "Withdraw",
+          data: [20, 150, 200, 10, 10, 200, 500, 128, 20]
+        }
       ],
-    };
-    this.options = {
-      maintainAspectRatio: false,
-      aspectRatio: 0.6,
-      plugins: {
-        legend: {
-          labels: {
-            color: textColor,
-          },
-        },
+      chart: {
+        type: "area",
+        height: 400,
+        stacked: true,
+        events: {
+          selection: function(chart, e) {
+            console.log(new Date(e.xaxis.min));
+          }
+        }
+      }, 
+      colors: ["#008FFB", "#00E396", "#CED4DC"],
+      dataLabels: {
+        enabled: false
       },
-      scales: {
-        x: {
-          ticks: {
-            color: textColorSecondary,
-          },
-          grid: {
-            color: surfaceBorder,
-          },
-        },
-        y: {
-          ticks: {
-            color: textColorSecondary,
-          },
-          grid: {
-            color: surfaceBorder,
-          },
-        },
+      fill: {
+        type: "gradient",
+        gradient: {
+          opacityFrom: 0.6,
+          opacityTo: 0.8
+        }
       },
+      legend: {
+        position: "top",
+        horizontalAlign: "left"
+      },
+      xaxis: {
+        categories: ["Jan", "Feb",  "Mar",  "Apr",  "May",  "Jun",  "Jul",  "Aug", "Sep"]
+      }
     };
   }
+
+
+  ngOnInit(): void {
+    
+  }
+
+  public generateDayWiseTimeSeries = function(baseval: any, count: any, yrange: any) {
+    var i = 0;
+    var series = [];
+    while (i < count) {
+      var x = baseval;
+      var y =
+        Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+
+      series.push([x, y]);
+      baseval += 86400000;
+      i++;
+    }
+    return series;
+  };
+
 }
