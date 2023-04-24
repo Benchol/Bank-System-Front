@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { User } from 'src/app/@cores/models/user.model';
 import { DataService } from 'src/app/@cores/services/data/data.service';
 import { HttpService } from 'src/app/@cores/services/http/http.service';
 
@@ -11,7 +12,6 @@ import { HttpService } from 'src/app/@cores/services/http/http.service';
   host: {'class': 'w-full relative'}
 })
 export class RefundAccoundComponent implements OnInit {
-
   refundForm!: FormGroup;
 
   constructor(
@@ -38,7 +38,6 @@ export class RefundAccoundComponent implements OnInit {
 
     this.httpService.refund(amount, pin)
       .subscribe(data => {
-        console.log('Data returned ', data);
         
         if(data.status) {
           this.messageService.add({
@@ -47,13 +46,13 @@ export class RefundAccoundComponent implements OnInit {
             detail: 'Amount added successful',
           });
 
-          const userUpdated = {
-            id: data.user.id,
-            name: data.user.name,
-            username: data.user.username,
-            balance: data.user.balance,
-            role: data.user.role
-          }
+          const userUpdated: User = {
+            id: data.data.id,
+            name: data.data.name,
+            username: data.data.username,
+            balance: data.data.balance,
+            role: data.data.role
+          }          
 
           this.dataService.currentUser.next(userUpdated);
           this.initForm()

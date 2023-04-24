@@ -25,5 +25,8 @@
         <div class="flex pl-8 my-3 pb-2 cursor-pointer items-center justify-start border-b" (click)="navigate('dashboard/withdraw')">
             <i class="pi pi-eject pr-2" style="color: slateblue"></i> Withdraw money
         </div>
+        <div *ngIf="currentUser.role === 'admin'" class="flex pl-8 my-3 pb-2 cursor-pointer items-center justify-start border-b" (click)="navigate('dashboard/withdraw')">
+            <i class="pi pi-eject pr-2" style="color: slateblue"></i> Lists of users
+        </div>
     </div>
 </div>

@@ -9,8 +9,8 @@ import {
   ApexDataLabels,
   ApexYAxis,
   ApexLegend,
-  ApexFill
-} from "ng-apexcharts";
+  ApexFill,
+} from 'ng-apexcharts';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -23,7 +23,6 @@ export type ChartOptions = {
   fill: ApexFill;
 };
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -31,7 +30,7 @@ export type ChartOptions = {
   host: { class: 'w-full relative w-screen' },
 })
 export class DashboardComponent implements OnInit {
-  @ViewChild("chart") chart!: ChartComponent;
+  @ViewChild('chart') chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
   constructor() {
@@ -49,42 +48,54 @@ export class DashboardComponent implements OnInit {
         }
       ],
       chart: {
-        type: "area",
+        type: 'area',
         height: 400,
-        stacked: true,
+        stacked: false,
         events: {
-          selection: function(chart, e) {
+          selection: function (chart, e) {
+            alert('hello');
             console.log(new Date(e.xaxis.min));
-          }
-        }
-      }, 
-      colors: ["#008FFB", "#00E396", "#CED4DC"],
+          },
+        },
+      },
+      colors: ['#008FFB', '#00E396', '#CED4DC'],
       dataLabels: {
-        enabled: false
+        enabled: false,
       },
       fill: {
-        type: "gradient",
+        type: 'gradient',
         gradient: {
           opacityFrom: 0.6,
-          opacityTo: 0.8
-        }
+          opacityTo: 0.8,
+        },
       },
       legend: {
-        position: "top",
-        horizontalAlign: "left"
+        position: 'top',
+        horizontalAlign: 'left',
       },
       xaxis: {
-        categories: ["Jan", "Feb",  "Mar",  "Apr",  "May",  "Jun",  "Jul",  "Aug", "Sep"]
-      }
+        categories: [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+        ],
+      },
     };
   }
 
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-    
-  }
-
-  public generateDayWiseTimeSeries = function(baseval: any, count: any, yrange: any) {
+  public generateDayWiseTimeSeries = function (
+    baseval: any,
+    count: any,
+    yrange: any
+  ) {
     var i = 0;
     var series = [];
     while (i < count) {
@@ -98,5 +109,4 @@ export class DashboardComponent implements OnInit {
     }
     return series;
   };
-
 }
