@@ -44,6 +44,9 @@ export class NavbarComponent implements OnInit {
                   label: 'Log out',
                   icon: 'pi pi-sign-out',
                   command: () => {
+                    console.log('Hello');
+                    
+                    this.dataService.isConnected.next(false)
                   }
               }
           ]

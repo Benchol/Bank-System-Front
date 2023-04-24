@@ -18,6 +18,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { TransactionsHistoryComponent } from './transactions-history/transactions-history.component';
 import { CardModule } from 'primeng/card';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { ListUserComponent } from './list-user/list-user.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     RefundAccoundComponent,
     WithdrawMoneyComponent,
     TransferMoneyComponent,
-    TransactionsHistoryComponent
+    TransactionsHistoryComponent,
+    ListUserComponent
   ],
   imports: [
     CommonModule,

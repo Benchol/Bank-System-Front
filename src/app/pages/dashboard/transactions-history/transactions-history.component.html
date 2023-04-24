@@ -1,5 +1,6 @@
-<div class="card mt-8">
-    <p-table #dt [showCurrentPageReport]="true" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [value]="listTransactions" [tableStyle]="{ 'min-width': '50rem' }" [rows]="10">
+<div class="card my-8">
+    <p-table #dt [showCurrentPageReport]="true" [globalFilterFields]="['receiver.name', 'amount', 'transaction_type', 'transaction_date']" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [value]="listTransactions"
+        [tableStyle]="{ 'min-width': '50rem' }" [rows]="10">
         <ng-template pTemplate="caption">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start text-xl font-bold">
@@ -19,17 +20,25 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th class="!text-center" pSortableColumn="receiver.name">Name of payees
+                <th class="!text-center" pSortableColumn="receiver.name">
                     <p-sortIcon field="code"></p-sortIcon>
+                    Name of payees
+                    <p-columnFilter type="text" field="receiver.name" display="menu"></p-columnFilter>
                 </th>
-                <th class="!text-center" pSortableColumn="amount">Amount
+                <th class="!text-center" pSortableColumn="amount">
                     <p-sortIcon field="code"></p-sortIcon>
+                    Amount
+                    <p-columnFilter type="text" field="amount" display="menu"></p-columnFilter>
                 </th>
-                <th class="!text-center" pSortableColumn="transaction_type">Type of transaction
+                <th class="!text-center" pSortableColumn="transaction_type">
                     <p-sortIcon field="code"></p-sortIcon>
+                    Type of transaction
+                    <p-columnFilter type="text" field="transaction_type" display="menu"></p-columnFilter>
                 </th>
-                <th class="!text-center" pSortableColumn="transaction_date">Date transaction
+                <th class="!text-center" pSortableColumn="transaction_date">
                     <p-sortIcon field="code"></p-sortIcon>
+                    Date transaction
+                    <p-columnFilter type="text" field="transaction_date" display="menu"></p-columnFilter>
                 </th>
                 <th class="!text-center">Descriptions</th>
             </tr>
@@ -41,7 +50,8 @@
                 <td class="!text-center">
                     <p-tag [value]="transaction.transaction_type" [severity]="getTypeTransaction(transaction.transaction_type)"></p-tag>
                 </td>
-                <td class="!text-center">{{ transaction.transaction_date | date:"M / d / yy, h:mm a" }}</td>
+                <!-- <td class="!text-center">{{ transaction.transaction_date | date:"M / d / yy, h:mm a" }}</td> -->
+                <td class="!text-center">{{ transaction.transaction_date }}</td>
                 <td class="!text-center">Hello</td>
             </tr>
         </ng-template>
